@@ -15,11 +15,12 @@ export const sendToken = (User, statusCode, res) => {
     // Set the cookie options
     const options = {
       expires: new Date(Date.now() + cookieExpires * 24 * 60 * 60 * 1000),
-      httpOnly: true,
-      secure: false,
-      sameSite: 'Strict',
-      path: '/', // Default path
+      httpOnly: true, // Prevents JavaScript from accessing the cookie
+      secure: false, // Ensure this is false for non-HTTPS
+      sameSite: 'Lax', // Allows the cookie to be sent with normal cross-site requests
+      path: '/',
     };
+    
     
 
     // Set the cookie and return the response
