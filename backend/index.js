@@ -25,13 +25,13 @@ app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));  // Serve 
 connectDb();  // Database Connection
 
 // Advanced CORS setup
-const corsOptions = {
-  origin: 'http://3.107.55.224:8080',  // Frontend origin
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,  // Allow cookies and other credentials
-  optionsSuccessStatus: 204  // Some legacy browsers choke on 204
-};
-app.use(cors(corsOptions)); 
+// const corsOptions = {
+//   origin: 'http://3.107.55.224:8080',  // Frontend origin
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true,  // Allow cookies and other credentials
+//   optionsSuccessStatus: 204  // Some legacy browsers choke on 204
+// };
+// app.use(cors(corsOptions)); 
 
 const PORT = process.env.PORT || 8080;
 
