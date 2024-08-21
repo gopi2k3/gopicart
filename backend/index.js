@@ -31,7 +31,7 @@ const corsOptions = {
   credentials: true,  // Allow cookies and other credentials
   optionsSuccessStatus: 204  // Some legacy browsers choke on 204
 };
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); 
 
 const PORT = process.env.PORT || 8080;
 
