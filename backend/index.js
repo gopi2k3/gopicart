@@ -26,10 +26,12 @@ connectDb();  // Database Connection
 
 // Advanced CORS setup
 const corsOptions = {
-  origin: 'http://3.107.55.224:8080', // Adjust to match your frontend URL
+  origin: 'http://3.107.55.224:8080',  // Replace with your frontend origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
+  credentials: true,  // Allows cookies and other credentials
 };
+
+app.use(cors(corsOptions));
 
 app.use(cors(corsOptions));
 
