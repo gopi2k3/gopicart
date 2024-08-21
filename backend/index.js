@@ -26,12 +26,21 @@ connectDb();  // Database Connection
 
 // Advanced CORS setup
 const corsOptions = {
-  origin: 'http://3.107.55.224:8080/',  // Frontend origin
+  origin: (origin, callback) => {
+    const allowedOrigins = ['http://localhost:3000', 'http://3.107.55.224:8080'];
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,  // Allow cookies and other credentials
-  optionsSuccessStatus: 204  // Some legacy browsers choke on 204
+  credentials: true,
+  optionsSuccessStatus: 204
 };
-app.use(cors(corsOptions)); 
+
+app.use(cors(corsOptions));
+
 
 const PORT = process.env.PORT || 8080;
 
