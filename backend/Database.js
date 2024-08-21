@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 dotenv.config();  // Load environment variables
 
-dotenv.config({path:path.join(__dirname,"config/config.env")});  // Load environment variables
+dotenv.config();  // Load environment variables
 
 
 

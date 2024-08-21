@@ -16,7 +16,7 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
-dotenv.config({path:path.join(__dirname,"config/config.env")});  // Load environment variables
+dotenv.config();  // Load environment variables
 
 app.use(express.json());  // Middleware
 app.use(cookieParser());  // Middleware
