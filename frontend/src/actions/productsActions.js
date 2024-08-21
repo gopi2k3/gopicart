@@ -33,12 +33,14 @@ import {
   updateProductSuccess,
 } from "../Slices/productSlice";
 
+let BASE_Url='http://52.64.175.239:8080';
+
 export const getProducts = (keyword, price,category,rating, currentPage) => async (dispatch) => {
   try {
     dispatch(productsRequest());
 
     // Build the query string
-    let link = `http://localhost:8080/cart/products?page=${currentPage}`;
+    let link = `${BASE_Url}/cart/products?page=${currentPage}`;
 
     if (keyword) {
       link += `&keyword=${encodeURIComponent(keyword)}`;
@@ -78,7 +80,7 @@ export const getProduct = id => async (dispatch) => {
   try {
     dispatch(productRequest());
 
-    let res = await axios.get(`http://localhost:8080/cart/product/${id}`);
+    let res = await axios.get(`${BASE_Url}/cart/product/${id}`);
 
     dispatch(productSuccess(res.data));
   } catch (error) {
@@ -100,7 +102,7 @@ export const CreateReview = reviewData => async (dispatch) => {
       }
     }
 
-    let {data} = await axios.put(`http://localhost:8080/cart/review`,reviewData,config);
+    let {data} = await axios.put(`${BASE_Url}/cart/review`,reviewData,config);
 
     dispatch(createReviewSuccess(data ));
   } catch (error) {
@@ -115,7 +117,7 @@ export const AdminProducts=()=> async(dispatch)=>{
     dispatch(adminproductsRequest())
 
 
-    let {data}=await axios.get('http://localhost:8080/cart/admin/products')
+    let {data}=await axios.get(`${BASE_Url}/cart/admin/products`)
 
     dispatch(adminproductsSuccess(data))
 
@@ -133,7 +135,7 @@ export const CreateAdminProduct= productData  => async (dispatch)=>{
 
   try{
     dispatch(newProductRequest())
-    let {data}=await axios.post('http://localhost:8080/cart/admin/product/new',productData)
+    let {data}=await axios.post(`${BASE_Url}/cart/admin/product/new`,productData)
     dispatch(newProductSuccess(data))
 
   }
@@ -146,7 +148,7 @@ export const DeleteAdminProduct= id => async (dispatch)=>{
 
   try{
     dispatch(deleteProductRequest())
-    await axios.delete(`http://localhost:8080/cart/product/${id}`)
+    await axios.delete(`${BASE_Url}/cart/product/${id}`)
     dispatch(deleteProductSuccess())
 
   }
@@ -159,7 +161,7 @@ export const UpdateAdminProduct= (formData,id) => async (dispatch)=>{
 
   try{
     dispatch(updateProductRequest())
-   let {data}= await axios.put(`http://localhost:8080/cart/admin/product/${id}`,formData)
+   let {data}= await axios.put(`${BASE_Url}/cart/admin/product/${id}`,formData)
     dispatch(updateProductSuccess(data))
 
   }
@@ -175,7 +177,7 @@ export const getReviews = id=>async (dispatch) => {
   try {
     dispatch(reviewsRequest());
 
-    let {data} = await axios.get(`http://localhost:8080/cart/admin/reviews`,{params:{id}});
+    let {data} = await axios.get(`${BASE_Url}/cart/admin/reviews`,{params:{id}});
 
     dispatch(reviewsSuccess(data));
   } catch (error) {
@@ -186,7 +188,7 @@ export const deleteReviews = (productId,id)=>async (dispatch) => {
   try {
     dispatch(deleteReviewRequest());
 
-     await axios.delete(`http://localhost:8080/cart/admin/review`,{params:{productId,id}});
+     await axios.delete(`${BASE_Url}/cart/admin/review`,{params:{productId,id}});
 
     dispatch(deleteReviewSuccess());
   } catch (error) {
