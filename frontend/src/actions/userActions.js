@@ -32,7 +32,7 @@ export const Login = (email, password) => async (dispatch) => {
   try {
     dispatch(loginRequest());
 
-    const { data } = await axios.post(`http://localhost:8080/cart/login`, {
+    const { data } = await axios.post(`http://52.64.175.239:8080/cart/login`, {
       email,
       password,
     });
@@ -54,7 +54,7 @@ export const Register = (userData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `http://localhost:8080/cart/register`,
+      `http://52.64.175.239:8080/cart/register`,
       userData,
       config
     );
@@ -76,7 +76,7 @@ export const UpdateProfile = (userData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `http://localhost:8080/cart/update`,
+      `http://52.64.175.239:8080/cart/update`,
       userData,
       config
     );
@@ -97,7 +97,7 @@ export const UpdatePassword = (formData) => async (dispatch) => {
     };
 
     await axios.put(
-      `http://localhost:8080/cart/password/change`,
+      `http://52.64.175.239:8080/cart/password/change`,
       formData,
       config
     );
@@ -111,7 +111,7 @@ export const UpdatePassword = (formData) => async (dispatch) => {
 export const loadUser = async (dispatch) => {
   try {
     dispatch(loadUserRequest());
-    const { data } = await axios.get(`http://localhost:8080/cart/myprofile`);
+    const { data } = await axios.get(`http://52.64.175.239:8080/cart/myprofile`);
 
     dispatch(loadUserSuccess(data));
   } catch (error) {
@@ -121,7 +121,7 @@ export const loadUser = async (dispatch) => {
 
 export const logoutUser = async (dispatch) => {
   try {
-    await axios.get(`http://localhost:8080/cart/logout`);
+    await axios.get(`http://52.64.175.239:8080/cart/logout`);
 
     dispatch(logoutSuccess());
   } catch (error) {
@@ -144,7 +144,7 @@ export const ForgotPassword = (formData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `http://localhost:8080/cart/password/forgot`,
+      `http://52.64.175.239:8080/cart/password/forgot`,
       formData,
       config
     );
@@ -165,7 +165,7 @@ export const ResetPassword = (formData, token) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `http://localhost:8080/cart/password/reset/${token}`,
+      `http://52.64.175.239:8080/cart/password/reset/${token}`,
       formData,
       config
     );
@@ -186,7 +186,7 @@ export const ResetPassword = (formData, token) => async (dispatch) => {
 export const getUsers = async (dispatch) => {
   try {
     dispatch(usersRequest());
-    const { data } = await axios.get(`http://localhost:8080/cart/admin/users`);
+    const { data } = await axios.get(`http://52.64.175.239:8080/cart/admin/users`);
 
     dispatch(usersSuccess(data));
   } catch (error) {
@@ -196,7 +196,7 @@ export const getUsers = async (dispatch) => {
 export const getUser =id => async (dispatch) => {
   try {
     dispatch(userRequest());
-    const { data } = await axios.get(`http://localhost:8080/cart/admin/user/${id}`);
+    const { data } = await axios.get(`http://52.64.175.239:8080/cart/admin/user/${id}`);
 
     dispatch(userSuccess(data));
   } catch (error) {
@@ -207,7 +207,7 @@ export const getUser =id => async (dispatch) => {
 export const deleteUser =id => async (dispatch) => {
   try {
     dispatch(deleteUserRequest());
-     await axios.delete(`http://localhost:8080/cart/admin/user/${id}`);
+     await axios.delete(`http://52.64.175.239:8080/cart/admin/user/${id}`);
 
     dispatch(deleteUserSuccess());
   } catch (error) {
@@ -224,7 +224,7 @@ export const UpdateUser = (id, formData) => async (dispatch) => {
 
   
     const { data } = await axios.put(
-      `http://localhost:8080/cart/admin/user/${id}`,
+      `http://52.64.175.239:8080/cart/admin/user/${id}`,
       formData
     );
 
