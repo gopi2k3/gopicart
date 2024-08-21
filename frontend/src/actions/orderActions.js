@@ -20,7 +20,7 @@ import {
   userOrderSuccess,
 } from "../Slices/orderSlice";
 
-let BASE_Url='http://13.236.161.155:8080';
+let BASE_Url='http://3.107.55.224:8080';
 
 
 export const createOrder = (order) => async (dispatch) => {
