@@ -33,7 +33,7 @@ import {
   updateProductSuccess,
 } from "../Slices/productSlice";
 
-let BASE_Url='http://52.64.175.239:8080';
+let BASE_Url='http://13.236.161.155:8080';
 
 export const getProducts = (keyword, price,category,rating, currentPage) => async (dispatch) => {
   try {

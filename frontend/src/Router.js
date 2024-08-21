@@ -43,7 +43,7 @@ const Router = () => {
   const [stripeKey, setStripeKey] = useState("");
 
   const { isAuthenticated } = useSelector((state) => state.authState);
-  let BASE_Url='http://52.64.175.239:8080';
+  let BASE_Url='http://13.236.161.155:8080';
 
   useEffect(() => {
     if (isAuthenticated) {
