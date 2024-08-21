@@ -16,8 +16,11 @@ export const sendToken = (User, statusCode, res) => {
     const options = {
       expires: new Date(Date.now() + cookieExpires * 24 * 60 * 60 * 1000),
       httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
       sameSite: 'Strict',
+      path: '/', // Default path
     };
+    
 
     // Set the cookie and return the response
     res.status(statusCode).cookie('token', token, options).json({

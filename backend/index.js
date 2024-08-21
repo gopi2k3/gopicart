@@ -26,17 +26,9 @@ connectDb();  // Database Connection
 
 // Advanced CORS setup
 const corsOptions = {
-  origin: (origin, callback) => {
-    const allowedOrigins = ['http://localhost:3000', 'http://3.107.55.224:8080'];
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: 'http://3.107.55.224:8080', // Adjust to match your frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
-  optionsSuccessStatus: 204
 };
 
 app.use(cors(corsOptions));
