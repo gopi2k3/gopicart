@@ -6,7 +6,6 @@ import { loadUser } from "./actions/userActions";
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 function App() {
-  axios.defaults.withCredentials = true;
 
 
   useEffect(() => {
