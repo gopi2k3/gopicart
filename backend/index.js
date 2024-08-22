@@ -24,6 +24,13 @@ app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));  // Serve 
 
 connectDb();  // Database Connection
 
+const corsOptions = {
+  origin: 'http://3.107.55.224:8080', // Frontend origin
+  credentials: true, // Allow credentials (cookies)
+};
+
+app.use(cors(corsOptions));
+
 
 
 
