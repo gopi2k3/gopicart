@@ -11,7 +11,7 @@ axios.defaults.withCredentials = true;
 
 function App() {
   useEffect(() => {
-    store.dispatch(loadUser()); // Call loadUser as a function
+    store.dispatch(loadUser); // Call loadUser as a function
   }, []);
 
   return (
