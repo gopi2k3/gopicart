@@ -20,7 +20,6 @@ import {
   userOrderSuccess,
 } from "../Slices/orderSlice";
 
-let BASE_Url='http://3.107.55.224:8080';
 
 
 export const createOrder = (order) => async (dispatch) => {
@@ -28,7 +27,7 @@ export const createOrder = (order) => async (dispatch) => {
     dispatch(createOrderRequest());
 
     let { data } = await axios.post(
-      `${BASE_Url}/cart/order/new`,
+      `/cart/order/new`,
       order
     );
 
@@ -42,7 +41,7 @@ export const UserOrders = async (dispatch) => {
   try {
     dispatch(userOrderRequest());
 
-    let { data } = await axios.get(`${BASE_Url}/cart/myorders`);
+    let { data } = await axios.get(`/cart/myorders`);
 
     dispatch(userOrderSuccess(data));
   } catch (error) {
@@ -53,7 +52,7 @@ export const OrderDetail = (id) => async (dispatch) => {
   try {
     dispatch(orderDetailRequest());
 
-    let { data } = await axios.get(`${BASE_Url}/cart/order/${id}`);
+    let { data } = await axios.get(`/cart/order/${id}`);
 
     dispatch(orderDetailSuccess(data));
   } catch (error) {
@@ -65,7 +64,7 @@ export const AdminOrders = async (dispatch) => {
   try {
     dispatch(adminOrdersRequest());
 
-    let { data } = await axios.get(`${BASE_Url}/cart/admin/orders`);
+    let { data } = await axios.get(`/cart/admin/orders`);
 
     dispatch(adminOrdersSuccess(data));
   } catch (error) {
@@ -76,7 +75,7 @@ export const DeleteOrder = (id) => async (dispatch) => {
   try {
     dispatch(deleteOrderRequest());
 
-    await axios.delete(`${BASE_Url}/cart/admin/order/${id}`);
+    await axios.delete(`/cart/admin/order/${id}`);
 
     dispatch(deleteOrderSuccess());
   } catch (error) {
@@ -87,7 +86,7 @@ export const UpdateOrder = (id,orderData) => async (dispatch) => {
   try {
     dispatch(updateOrderRequest());
 
-   let {data}= await axios.put(`${BASE_Url}/cart/admin/order/${id}`,orderData);
+   let {data}= await axios.put(`/cart/admin/order/${id}`,orderData);
 
     dispatch(updateOrderSuccess(data));
   } catch (error) {

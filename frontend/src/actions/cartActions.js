@@ -1,13 +1,12 @@
 import axios from "axios"
 import { addCartItemRequest, addCartItemSuccess } from "../Slices/cartSlice"
-let BASE_Url='http://3.107.55.224:8080';
 
 export  const AddCartItem=(id,quantity)=> async (dispatch)=>{
     try{
         dispatch(addCartItemRequest())
 
 
-        let {data}=await axios.get(`${BASE_Url}/cart/product/${id}`)
+        let {data}=await axios.get(`/cart/product/${id}`)
 
         dispatch(addCartItemSuccess(
             {
