@@ -14,7 +14,7 @@ export const sendToken = (User, statusCode, res) => {
     ),
     httpOnly: true,
     secure: false,
-    sameSite: 'Lax'
+    sameSite: 'None'
 };
 
 
