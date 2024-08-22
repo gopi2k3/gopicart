@@ -17,7 +17,7 @@ const __dirname = dirname(__filename);
 const app = express();
 
 const corsOptions = {
-  origin: 'http://3.107.55.224:8080', // Frontend origin
+  origin: 'http://localhost:8080', // Frontend origin
   credentials: true, // Allow credentials (cookies)
 };
 
