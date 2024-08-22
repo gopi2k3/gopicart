@@ -60,22 +60,13 @@ userSchema.methods.isValidPassword= async function(enteredpassword){
 
 
 userSchema.methods.getResetToken=function(){
-
   // Generate token
-
  const token= crypto.randomBytes(20).toString('hex')
-
-
  //Generate Hash and set to resetPasswordToken
-
  this.resetPasswordToken=crypto.createHash('sha256').update(token).digest('hex')
-
 //setresetPassword expire Time
  this.resetPasswordTokenExpire=Date.now() +30* 60*1000;
-
-
  return token
-
 }
 
 
