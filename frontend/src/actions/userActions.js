@@ -27,6 +27,8 @@ import axios from "axios";
 import { deleteUserFail, deleteUserRequest, deleteUserSuccess, updateUserFail, updateUserRequest, updateUserSuccess, userFail, userRequest, usersFail, usersRequest, usersSuccess, userSuccess } from "../Slices/userSlice";
 
 
+axios.defaults.withCredentials = true;
+
 
 export const Login = (email, password) => async (dispatch) => {
   try {

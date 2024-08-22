@@ -16,20 +16,22 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
-dotenv.config();  // Load environment variables
-
-app.use(express.json());  // Middleware
-app.use(cookieParser());  // Middleware
-app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));  // Serve static files
-
-connectDb();  // Database Connection
-
 const corsOptions = {
   origin: 'http://3.107.55.224:8080', // Frontend origin
   credentials: true, // Allow credentials (cookies)
 };
 
 app.use(cors(corsOptions));
+
+app.use(cookieParser());  // Middleware
+
+dotenv.config();  // Load environment variables
+
+app.use(express.json());  // Middleware
+app.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));  // Serve static files
+
+connectDb();  // Database Connection
+
 
 
 
