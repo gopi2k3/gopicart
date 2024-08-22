@@ -43,13 +43,12 @@ const Router = () => {
   const [stripeKey, setStripeKey] = useState("");
 
   const { isAuthenticated } = useSelector((state) => state.authState);
-  let BASE_Url='http://3.107.55.224:8080';
 
   useEffect(() => {
     if (isAuthenticated) {
       const getStripeKey = async () => {
         const { data } = await axios.get(
-          `${BASE_Url}/cart/stripeapi`
+          `/cart/stripeapi`
         );
         setStripeKey(data.stripeApikey);
       };
