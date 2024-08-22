@@ -68,7 +68,7 @@ const redirect=location.search? '/' + location.search.split('=')[1]:'/home'
                         <div className="card p-2 login-card">
 
                             <form onSubmit={handleSubmit}>
-                                <h2>Login</h2>
+                                <h2>Login.</h2>
                                 <div className="form-group my-4">
                                     <label htmlFor="email" className="mb-2">Email:</label>
                                     <input type="email" className="form-control" placeholder="Email" value={email}  onChange={(e)=>setEmail(e.target.value)}  name="email" />
