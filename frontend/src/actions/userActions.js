@@ -33,7 +33,7 @@ export const Login = (email, password) => async (dispatch) => {
   try {
     dispatch(loginRequest());
 
-    const { data } = await axios.post(`${BASE_Url}/cart/login`, {
+    const { data } = await axios.post(`/cart/login`, {
       email,
       password,
     });
@@ -55,7 +55,7 @@ export const Register = (userData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${BASE_Url}/cart/register`,
+      `/cart/register`,
       userData,
       config
     );
@@ -77,7 +77,7 @@ export const UpdateProfile = (userData) => async (dispatch) => {
     };
 
     const { data } = await axios.put(
-      `${BASE_Url}/cart/update`,
+      `/cart/update`,
       userData,
       config
     );
@@ -98,7 +98,7 @@ export const UpdatePassword = (formData) => async (dispatch) => {
     };
 
     await axios.put(
-      `${BASE_Url}/cart/password/change`,
+      `/cart/password/change`,
       formData,
       config
     );
@@ -112,7 +112,7 @@ export const UpdatePassword = (formData) => async (dispatch) => {
 export const loadUser = async (dispatch) => {
   try {
     dispatch(loadUserRequest());
-    const { data } = await axios.get(`${BASE_Url}/cart/myprofile`);
+    const { data } = await axios.get(`/cart/myprofile`);
 
     dispatch(loadUserSuccess(data));
   } catch (error) {
@@ -122,7 +122,7 @@ export const loadUser = async (dispatch) => {
 
 export const logoutUser = async (dispatch) => {
   try {
-    await axios.get(`${BASE_Url}/cart/logout`);
+    await axios.get(`/cart/logout`);
 
     dispatch(logoutSuccess());
   } catch (error) {
@@ -145,7 +145,7 @@ export const ForgotPassword = (formData) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${BASE_Url}/cart/password/forgot`,
+      `/cart/password/forgot`,
       formData,
       config
     );
@@ -166,7 +166,7 @@ export const ResetPassword = (formData, token) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${BASE_Url}/cart/password/reset/${token}`,
+      `$/cart/password/reset/${token}`,
       formData,
       config
     );
@@ -187,7 +187,7 @@ export const ResetPassword = (formData, token) => async (dispatch) => {
 export const getUsers = async (dispatch) => {
   try {
     dispatch(usersRequest());
-    const { data } = await axios.get(`${BASE_Url}/cart/admin/users`);
+    const { data } = await axios.get(`/cart/admin/users`);
 
     dispatch(usersSuccess(data));
   } catch (error) {
@@ -197,7 +197,7 @@ export const getUsers = async (dispatch) => {
 export const getUser =id => async (dispatch) => {
   try {
     dispatch(userRequest());
-    const { data } = await axios.get(`${BASE_Url}/cart/admin/user/${id}`);
+    const { data } = await axios.get(`/cart/admin/user/${id}`);
 
     dispatch(userSuccess(data));
   } catch (error) {
@@ -208,7 +208,7 @@ export const getUser =id => async (dispatch) => {
 export const deleteUser =id => async (dispatch) => {
   try {
     dispatch(deleteUserRequest());
-     await axios.delete(`${BASE_Url}/cart/admin/user/${id}`);
+     await axios.delete(`/cart/admin/user/${id}`);
 
     dispatch(deleteUserSuccess());
   } catch (error) {
@@ -225,7 +225,7 @@ export const UpdateUser = (id, formData) => async (dispatch) => {
 
   
     const { data } = await axios.put(
-      `${BASE_Url}/cart/admin/user/${id}`,
+      `/cart/admin/user/${id}`,
       formData
     );
 
