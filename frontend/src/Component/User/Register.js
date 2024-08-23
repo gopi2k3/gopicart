@@ -63,7 +63,9 @@ const RegisterPage = () => {
           position: "bottom-center",
           type:'error',
           onOpen:()=>{
-            dispatch(clearAuthError)
+            setTimeout(()=>{
+              dispatch(clearAuthError)
+            },3000)
           }
         });
         return
