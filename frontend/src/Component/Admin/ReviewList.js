@@ -153,12 +153,15 @@ export default function ReviewList(){
                 {
                     loading?<Loader/>:
                     <Fragment>
+            <div className="table-responsive">
+
                         <MDBDataTable data={setReviews()}
                         bordered
                         striped
                         hover
                         className='px-3'
                         />
+                        </div>
                     </Fragment>
                 }
 

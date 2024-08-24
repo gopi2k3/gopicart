@@ -167,7 +167,7 @@ export const ResetPassword = (formData, token) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `$/cart/password/reset/${token}`,
+      `/cart/password/reset/${token}`,
       formData,
       config
     );

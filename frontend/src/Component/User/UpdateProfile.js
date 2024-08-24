@@ -11,7 +11,7 @@ export default function UpdateProfilePage() {
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
 
-  let { error, isUpdated, user } = useSelector((state) => state.authState);
+  let { error, isUpdated, user,loading } = useSelector((state) => state.authState);
 
   const [avatar, setAvatar] = useState("");
   const [avatarPreview, setAvatarPreview] = useState(
@@ -80,7 +80,10 @@ export default function UpdateProfilePage() {
         position: "bottom-center",
         type: "error",
         onOpen: () => {
-          dispatch(clearAuthError);
+          setTimeout(()=>{
+
+            dispatch(clearAuthError);
+          },3000)
         },
       });
       return;
@@ -148,7 +151,7 @@ export default function UpdateProfilePage() {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-success my-2">
+            <button type="submit" className="btn btn-success my-2" disabled={loading}>
               Update
             </button>
           </form>

@@ -94,6 +94,8 @@ export default function ProductList() {
           <Loader />
         ) : (
           <Fragment>
+            <div className="table-responsive">
+
             <MDBDataTable
               data={setProducts()}
               bordered
@@ -101,6 +103,7 @@ export default function ProductList() {
               hover
               className="px-3"
             />
+            </div>
           </Fragment>
         )}
       </div>
