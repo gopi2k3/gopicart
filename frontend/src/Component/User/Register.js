@@ -46,7 +46,6 @@ const RegisterPage = () => {
 
     dispatch(Register(formData))
 
-    console.log('submit')
 
   };
 
