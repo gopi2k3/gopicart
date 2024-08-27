@@ -31,7 +31,7 @@ export default function AdminHeaad() {
   const handleBurger2 = () => {
     setMobileSide(!mobileSide);
   };
-  
+
   const logOutHandler = () => {
     dispatch(logoutUser);
   };
@@ -44,7 +44,8 @@ export default function AdminHeaad() {
             <Link to="/home">
               <img
                 src="https://play-lh.googleusercontent.com/G7jAks-PRl4d7IkL-s3Ir44nGyPq0Yh872N5UMwZYIJz4wG1Oj0DqoQjsAR5ddKZbQ"
-                width="100%" height='40px'
+                width="100%"
+                height="40px"
               />
             </Link>
           </div>
@@ -104,9 +105,7 @@ export default function AdminHeaad() {
 
         <div className={burger ? "header-row is-active" : "header-row"}>
           <div
-            className={
-              burger ? "header-logo-div is-active" : "header-logo-div"
-            }
+            className={burger ? "header-logo-div is-active" : "header-logo-div"}
           >
             <div className="header-log row align-items-center">
               <Link to="/home">
@@ -176,6 +175,68 @@ export default function AdminHeaad() {
       <div className="app-sidebar">
         <div className="side-content">
           <ul className="sidebar-ul p-0">
+            <li className="sidebar-li" onClick={() => nav("/admin/dashboard")}>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span className="side-head ml-3">DashBoard</span>
+              </div>
+            </li>
+            <li className="sidebar-li">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <i className="fa fa-product-hunt"></i>
+                <span className="side-head ml-3">Products</span>
+              </div>
+              <ul>
+                <li className="sublist" onClick={() => nav("/admin/products")}>
+                  <div style={{ display: "flex" }}>
+                    <i className="subicon fa fa-basket"></i>
+                    <span className="sub-title">All</span>
+                  </div>
+                </li>
+                <li
+                  className="sublist"
+                  onClick={() => nav("/admin/products/create")}
+                >
+                  <div style={{ display: "flex" }}>
+                    <i className="subicon fa fa-basket"></i>
+                    <span className="sub-title">Create</span>
+                  </div>
+                </li>
+              </ul>
+            </li>
+
+            <li className="sidebar-li" onClick={() => nav("/admin/orders")}>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <i className="fa fa-shopping-basket"></i>
+                <span className="side-head ml-3">Orders</span>
+              </div>
+            </li>
+            <li className="sidebar-li" onClick={() => nav("/admin/users")}>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <i
+                  className="fa fa-users"
+                  style={{ fontSize: "20px", marginRight: "10px" }}
+                ></i>
+                <span className="side-head ml-3">Users</span>
+              </div>
+            </li>
+            <li className="sidebar-li" onClick={() => nav("/admin/reviews")}>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <i
+                  className="fa fa-users"
+                  style={{ fontSize: "20px", marginRight: "10px" }}
+                ></i>
+                <span className="side-head ml-3">Reviews</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* mobile and tab view side bar ======================== */}
+
+      <div className={mobileSide ? "mobile-sidebar active" : "mobile-sidebar"}>
+        <div>
+        <ul className="sidebar-ul p-0">
             <li className="sidebar-li" onClick={() => nav("/admin/dashboard")}>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <span className="side-head ml-3">DashBoard</span>

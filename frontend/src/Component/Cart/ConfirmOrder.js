@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import CheckoutStep from "./CheckStepOut";
 
 export default function ConfirmOrder() {
-  const { shippingInfo, items: cartItems } = useSelector(
+  const { shippingInfo={}, items: cartItems } = useSelector(
     (state) => state.cartState
   );
   const { user } = useSelector((state) => state.authState);

@@ -68,7 +68,7 @@ export default function DashBoard (){
                       <div>
                         <h6 className="card-title text-center">Total Amount</h6>
                         <div className="data-group">
-                          <div className="dash-amount text-center"> $ {totalAmount}</div>
+                          <div className="dash-amount text-center"> $ {totalAmount.toFixed(2)}</div>
                           <div></div>
                         </div>
                       </div>

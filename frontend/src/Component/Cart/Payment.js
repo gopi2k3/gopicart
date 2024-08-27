@@ -27,7 +27,7 @@ export default function PaymentPage() {
   const{error:OrderError}=useSelector((state)=>state.orderState)
 
   const { user } = useSelector((state) => state.authState);
-  const { items: cartItems, shippingInfo } = useSelector(
+  const { items: cartItems, shippingInfo={} } = useSelector(
     (state) => state.cartState
   );
 

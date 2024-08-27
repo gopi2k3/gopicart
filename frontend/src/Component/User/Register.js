@@ -13,7 +13,7 @@ const RegisterPage = () => {
 
   const [avatar, setAvatar] = useState("");
   const [avatarPreview, setAvatarPreview] = useState(
-    "/images/default_image.png"
+    "./images/default_image.png"
   );
 
   const handleData = (e) => {

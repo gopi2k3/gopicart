@@ -677,3 +677,31 @@ button,
     -o-transition     : ease 300ms all;
   }
   
+
+
+
+  .mobile-sidebar {
+    position          : fixed;
+    top               : 60px;
+    left              : -400px;
+    z-index           : 99;
+    background        : #fff;
+    width             : 300px;
+    min-height        : 100vh;
+    box-shadow        : 0 0 10px #ccc;
+    transition        : all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition   : all 1s ease;
+    -ms-transition    : all 1s ease;
+    -o-transition     : all 1s ease;
+  }
+  
+  .mobile-sidebar.active {
+    left              : 0;
+    transition        : all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition   : all 1s ease;
+    -ms-transition    : all 1s ease;
+    -o-transition     : all 1s ease;
+  }
+  
